@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>GGJ 2022 Game</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="jquery-3.6.0.min.js"></script>
+        <script src="game.js"></script>
+    </head>
+    <body onload="initGame()">        
+    <div id = "gamedata" style="display: none;">
+        <p>
+            To get started, drag the missing [Words] into the matching spots in the sentence.
+        </p>
+        ♻️
+        <div style="background-color: khaki;">
+            <h1>Hallo</h1>
+            <p>
+                Have [you] heard about the [missing] words??
+            </p>
+        </div>
+        ♻️
+        <h1>Hallo 2</h1>
+        <p>
+            They [are] still missing. [Blimey]! What are we going to [do] about it? 
+        </p>
+    </div>
+    <div id = "prefabs" style="display: none;">
+        <div id="prefabWordblock" class="wordblock"></div>
+        <span id="prefabWordblockAnchor" class="wordblockAnchor"></span>
+    </div>
+        <div class="gamecontainer">
+            <div class = "storycontainer">
+                <div class="storyscroller">
+                    <div class = scrollerPadder></div>
+                </div>
+            </div>
+            <div id = "botbar", class="botbar">
+                <div id = "wordstash" class = "wordstash" ondrop="dropOnWordstash(event)" ondragover="dragAllowDrop(event)">
+                    <div class="wordblock">Hi!</div>
+                    <div class="wordblock activeWordblock">Himalaya</div>
+                </div>
+                <div class = "continuebutton">
+                  <button onclick="onNextButtonClicked()">Next</button>  
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
