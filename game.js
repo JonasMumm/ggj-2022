@@ -1,4 +1,4 @@
-const StartSegmentIndex = 0;
+const StartSegmentIndex = 6;
 
 let constData;
 let stashAnchors;
@@ -27,7 +27,7 @@ function InitLevel(levelIndex)
     PopulateBottomBar(constData[levelIndex]);
     DisplaySegment(constData[levelIndex]);
     HandleButtonEnabledState();
-    ScrollFromTo(scrollPos,GetScrollTargetForSegment(levelIndex), 0.5);
+    ScrollFromTo(scrollPos,GetScrollTargetForSegment(levelIndex), 0.7);
 }
 
 function MaybeDeactivateLevel(levelIndex)
@@ -59,8 +59,8 @@ function PopulateBottomBar(segment)
         $("#wordstash").prepend(" ");
         var template = segment.templates[i];
         var newSource = $("#prefabWordblockAnchor").clone().prependTo("#wordstash");
-        var newAnchorId = "stashAnchor_"+segment.index+"_"+i+"_"+template.templateString;
-        var newBlockId = "block_"+segment.index+"_"+i+"_"+template.templateString;
+        var newAnchorId = "stashAnchor_"+segment.index+"_"+i+"_";
+        var newBlockId = "block_"+segment.index+"_"+i+"_";
         newSource.attr("id",newAnchorId);
         stashAnchors.push({"anchorId": newAnchorId, "templateString": template.templateString, "currentBlockId": newBlockId });
 
@@ -290,7 +290,7 @@ function ProcessHtml(segment)
     {
         var template = segment.templates[i];
         var newElement = $("#prefabWordblockAnchor").clone();
-        var newId = "wordblockAnchor_"+segment.index+"_"+i+"_"+template.templateString;
+        var newId = "wordblockAnchor_"+segment.index+"_"+i+"_";
         newElement.attr("id",newId);
         newElement.addClass("wordblockAnchorForceOpen");
         newElement.attr("ondragover","dragAllowDropOnActiveAnchors(event)");
