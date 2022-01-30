@@ -103,6 +103,7 @@ body{
     display: inline-block;
     flex-grow: 1;
     font-family: 'Roboto', sans-serif;
+    min-height: 1.5em;
 }
 
 .continuebutton
