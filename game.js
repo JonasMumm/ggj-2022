@@ -1,4 +1,4 @@
-const StartSegmentIndex = 6;
+const StartSegmentIndex = 0;
 
 let constData;
 let stashAnchors;
