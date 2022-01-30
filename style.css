@@ -13,6 +13,10 @@ h1, h2, h3, h4
 body{
     margin: 0 0 0 0;
     overflow: hidden;
+    background-image: url('data/Background\ allover.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .noselect {
@@ -35,7 +39,7 @@ body{
 
 .storycontainer
 {
-    background-color: rgb(67, 74, 80);
+    background-color: rgba(67, 74, 80, 0.678);
     flex-grow: 1;
     overflow-y: scroll;
 }
@@ -165,6 +169,7 @@ wordblockAnchor + wordblockAnchor
     display: block;
     opacity: 1;
     transition: opacity 2s;
+    margin-top: 2rem;
 }
 
 .hiddenStorySegment

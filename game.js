@@ -263,7 +263,6 @@ function GetGameData()
         rootElem.classList.add("hiddenStorySegment");
         rootElem.style.opacity = 0;
         $(".storyscroller").append(rootElem);
-        $(".storyscroller").append("<div id="+rootId+"></div>");
         $("#"+rootId).html(segment.processedHtml );
         segments.push(segment);
     }
