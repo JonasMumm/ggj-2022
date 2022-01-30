@@ -59,6 +59,8 @@ body{
 {
     max-width: 60rem;
     margin: 0 auto 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .scrollerPadder
