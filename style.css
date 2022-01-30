@@ -66,6 +66,7 @@ body{
 .scrollerPadder
 {
     flex-grow: 1;
+    height: 100vh;
     transition: top 2s height 2s flex-grow 2s;
 }
 

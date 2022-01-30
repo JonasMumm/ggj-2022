@@ -20,12 +20,14 @@ function initGame()
 
 function InitLevel(levelIndex)
 {
+    var scrollPos = GetCurrentYScrollPosition();
     MaybeDeactivateLevel(levelIndex-1);
     currentSegmentIndex = levelIndex;
     ClearAllBottomBarAnchors();
     PopulateBottomBar(constData[levelIndex]);
     DisplaySegment(constData[levelIndex]);
     HandleButtonEnabledState();
+    ScrollFromTo(scrollPos,GetScrollTargetForSegment(levelIndex), 0.5);
 }
 
 function MaybeDeactivateLevel(levelIndex)
@@ -305,12 +307,55 @@ function ProcessHtml(segment)
 
 function onNextButtonClicked()
 {
+    GetCurrentYScrollPosition();
+    console.log(GetScrollTargetForSegment(0));
     InitLevel(currentSegmentIndex+1);
 }
 
 function GetCurrentYScrollPosition()
 {
+    var el = document.getElementById("storycontainer"); // Or whatever method to get the element
+    return el.scrollTop;
+}
 
+function GetScrollTargetForSegment(segmentIndex)
+{
+    var rootId = constData[segmentIndex].rootElementId;
+    segmentEl = document.getElementById(rootId);
+    scrollerEl = document.getElementById("storycontainer");
+
+    var segTop = segmentEl.offsetTop;
+    var segHeight = segmentEl.offsetHeight;
+
+    var scrollerVpHeight = scrollerEl.offsetHeight;
+    return segTop - scrollerVpHeight +segHeight;
+}
+
+function ScrollFromTo(start, end, time)
+{
+    var scroller = document.getElementById("storycontainer"); // Or whatever method to get the element
+    var interv=setInterval(DoScroll,1/60 * 1000);
+
+    setTimeout(EndScroll, time* 1000);
+    let dt =0;
+    function DoScroll()
+    {
+        dt += 1/60;
+        var progress = Math.sqrt(dt/time)
+        SetScroll(start + (end-start)*progress);
+    }
+
+    function EndScroll()
+    {
+        SetScroll(end);
+        clearInterval(interv);
+    }
+
+    function SetScroll(pos)
+    {
+        console.log("Scroll To "+pos);
+        scroller.scrollTop = pos;
+    }
 }
 
 function HandleButtonEnabledState()
