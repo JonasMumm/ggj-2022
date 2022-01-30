@@ -25,6 +25,7 @@ function InitLevel(levelIndex)
     ClearAllBottomBarAnchors();
     PopulateBottomBar(constData[levelIndex]);
     DisplaySegment(constData[levelIndex]);
+    HandleButtonEnabledState();
 }
 
 function MaybeDeactivateLevel(levelIndex)
@@ -137,6 +138,8 @@ function dropOnWordstash(ev)
     blockData.currentAnchorId = anchorId;
 
     anchorData.currentBlockId = blockId;
+
+    HandleButtonEnabledState();
 }
 
 function dropOnSegmentAnchor(ev)
@@ -171,6 +174,8 @@ function dropOnSegmentAnchor(ev)
     console.log("PrevBlock: "+anchorData.currentBlockId);
     anchorData.currentBlockId = blockId;
     console.log("NewBlock: "+currentSegment.wordblockAnchors[anchorIndexIfTarget].currentBlockId);
+
+    HandleButtonEnabledState();
 }
 
 function FindActiveAnchorById(anchorId)
@@ -306,4 +311,15 @@ function onNextButtonClicked()
 function GetCurrentYScrollPosition()
 {
 
+}
+
+function HandleButtonEnabledState()
+{
+    var indexOfStashThatHasABlock = stashAnchors.findIndex(element => element.currentBlockId != null);
+
+    console.log("HandleButtonEnabledState "+indexOfStashThatHasABlock);
+
+    var isButtonEnabled = indexOfStashThatHasABlock == -1 && currentSegmentIndex < constData.length-1;
+
+    $(".continuebuttonbutton").attr("disabled", !isButtonEnabled);
 }

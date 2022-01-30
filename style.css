@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Roboto&display=swap');
+
+*, p, .wordblockAnchor, .wordblock
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4
+{
+    font-family: 'Comfortaa', cursive;
+}
+
 body{
     margin: 0 0 0 0;
     overflow: hidden;
@@ -23,19 +35,30 @@ body{
 
 .storycontainer
 {
-    background-color: aqua;
+    background-color: rgb(67, 74, 80);
     flex-grow: 1;
     overflow-y: scroll;
 }
 
 .storyscroller
 {
-    max-width: 60rem;
     margin: 0 auto 0 auto;
     transition: top 2s;
     min-height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.storySegment > div
+{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.centerBlock
+{
+    max-width: 60rem;
+    margin: 0 auto 0 auto;
 }
 
 .scrollerPadder
@@ -44,25 +67,55 @@ body{
     transition: top 2s height 2s flex-grow 2s;
 }
 
-.botbar
+.botbarContainer
 {
+    background-color: rgb(174, 216, 255);
+}
+
+.botbar
+{    
     display: flex;
     flex-direction: row;
+    max-width: 60rem;
     width: 100%;
-    background-color: yellow;
     padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wordstashWrapper
+{
+    background-color: rgba(0, 0, 0, 0.13);
+    border-radius: 4px;
+    padding: 4px;
+    display: inline-block;
+    flex-grow: 1;
+    margin-right: 8px;
+}
+
+.wordstashDescription
+{
+    font-family: 'Comfortaa', cursive;
 }
 
 .wordstash
 {
     display: inline-block;
     flex-grow: 1;
+    font-family: 'Roboto', sans-serif;
 }
 
 .continuebutton
 {
-    display: inline-block;
-    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+}
+
+.continuebuttonbutton
+{
+    font-size: 1em;
 }
 
 .wordblock

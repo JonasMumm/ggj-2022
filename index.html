@@ -7,9 +7,17 @@
     </head>
     <body onload="initGame()">        
     <div id = "gamedata" style="display: none;">
-        <p>
-            To get started, drag the missing [Words] into the matching spots in the sentence.
-        </p>
+        <div style = "background-color: blueviolet; color: white;">
+            <div class="centerBlock">
+                <h1>Game Title</h1>
+                <p>
+                    To get started, drag the missing [Words] into the matching spots in the sentence.
+                </p>
+                <p>
+                    Made for GlobalGameJam 2022 at GGJ Schleswig-Holstein by MM8000 and <a href="https://jonasmumm.itch.io">Jonas Mumm</a>. Have [fun] reading & playing!
+                </p>
+            </div>
+        </div>
         ♻️
         <div style="background-color: khaki;">
             <h1>Hallo</h1>
@@ -22,6 +30,15 @@
         <p>
             They [are] still missing. [Blimey]! What are we going to [do] about it? 
         </p>
+        ♻️
+        <div style = "background-color: blueviolet; color: white;">
+            <div class="centerBlock">
+                <h1>End!</h1>
+                <p>
+                    That's all folks!
+                </p>
+            </div>
+        </div>
     </div>
     <div id = "prefabs" style="display: none;">
         <div id="prefabWordblock" class="wordblock"></div>
@@ -33,13 +50,18 @@
                     <div class = scrollerPadder></div>
                 </div>
             </div>
-            <div id = "botbar", class="botbar">
-                <div id = "wordstash" class = "wordstash" ondrop="dropOnWordstash(event)" ondragover="dragAllowDrop(event)">
-                    <div class="wordblock">Hi!</div>
-                    <div class="wordblock activeWordblock">Himalaya</div>
-                </div>
-                <div class = "continuebutton">
-                  <button onclick="onNextButtonClicked()">Next</button>  
+            <div class = "botbarContainer">
+                <div id = "botbar", class="botbar">
+                    <div class = "wordstashWrapper" ondrop="dropOnWordstash(event)" ondragover="dragAllowDrop(event)">
+                        <div class = "wordstashDescription">Word Stash</div>
+                        <div id = "wordstash" class = "wordstash">
+                            <div class="wordblock">Hi!</div>
+                            <div class="wordblock activeWordblock">Himalaya</div>
+                        </div>
+                    </div>
+                    <div class = "continuebutton">
+                        <button class = "continuebuttonbutton" onclick="onNextButtonClicked()">Continue Story ➔</button>  
+                    </div>
                 </div>
             </div>
         </div>
