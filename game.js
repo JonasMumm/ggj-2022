@@ -353,7 +353,6 @@ function ScrollFromTo(start, end, time)
 
     function SetScroll(pos)
     {
-        console.log("Scroll To "+pos);
         scroller.scrollTop = pos;
     }
 }
